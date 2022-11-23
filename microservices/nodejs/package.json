@@ -1,0 +1,38 @@
+{
+  "name": "objectdection",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "keywords": [
+    "object detection",
+    "yolov5",
+    "javascript",
+    "react",
+    "tensorflow.js"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@tensorflow/tfjs": "^3.19.0",
+    "@tensorflow/tfjs-converter": "^3.19.0",
+    "@tensorflow/tfjs-node": "^3.19.0",
+    "aws-sdk": "^2.1193.0",
+    "axios": "^0.27.2",
+    "body-parser": "^1.20.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "http": "^0.0.1-security",
+    "jsonwebtoken": "^8.5.1",
+    "lodash": "^4.17.21"
+  },
+  "type": "module",
+
+  "devDependencies": {
+    "@vitejs/plugin-react": "^1.0.7",
+    "vite": "^2.8.0"
+  }
+}

@@ -1,0 +1,19 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: 'AWS::Serverless-2016-10-31'
+Description: A Lambda application that calls the Lambda API.
+
+Globals:
+  Function:
+    Timeout: 3
+
+Resources:
+  ObjectDetectionLayer:
+    Type: AWS::Serverless::LayerVersion
+    Properties:
+      LayerName: ObjectDetectionLayer
+      Description: Dependencies for the blank sample app.
+      ContentUri: ObjectDetectionLayer/
+      CompatibleRuntimes:
+        - nodejs16.x     
+      LicenseInfo: "MIT"
+      RetentionPolicy: Retain 

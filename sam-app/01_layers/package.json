@@ -1,0 +1,12 @@
+{
+  "name": "01_layers",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "sam build && sam deploy --s3-bucket chungangdemo --stack-name sls-layer--capabilities CAPABILITY_IAM"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

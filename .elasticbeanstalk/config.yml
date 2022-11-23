@@ -1,0 +1,11 @@
+branch-defaults:
+  master:
+    environment: Chungang-env
+global:
+  application_name: chungang
+  default_ec2_keyname: e-jycmm83rx2
+  default_platform: Node.js 16 running on 64bit Amazon Linux 2/5.5.5
+  default_region: ap-northeast-2
+  sc: git
+deploy:
+  artifact: deploy.zip

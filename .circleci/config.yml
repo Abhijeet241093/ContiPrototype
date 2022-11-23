@@ -1,0 +1,51 @@
+
+version: 2.1
+
+
+orbs:
+  node: circleci/node@4.7
+  slack: circleci/slack@4.4.4
+
+jobs:
+  build:
+    machine:
+      image: ubuntu-2004:202010-01 # recommended linux image
+      resource_class: large
+    steps:
+      - checkout  
+      - run:
+          name: Install pip
+          command: |
+            sudo apt update
+            sudo apt-get install python3-pip python-dev
+      - run:
+          name: Install AWS dependencies
+          command: |
+            sudo pip install awsebcli
+      - run:
+          name: install global
+          command: |
+            npm install -g rimraf 
+            npm install -g mkdirp
+            npm install -g ncp
+      - run: npm install --prefix server
+
+      - run: npm install --prefix client
+
+      - run: 
+          command: npm run build-cl --prefix client
+          no_output_timeout: 30m
+
+
+      - run: zip -r deploy.zip . -x "*client/node_modules/*" "*.git*" "*.circleci*" "*.elasticbeanstalk*" "*.github*" "*client/src*" "*avalanche*" "*microservices*" "*sam-app*"
+      - run:
+          name: Deploying
+          command: eb deploy Chungang-env 
+workflows:
+  test_my_app:
+    jobs:
+      - build:
+          filters:
+            branches:
+              only:
+                - main
